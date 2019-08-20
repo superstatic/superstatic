@@ -1,0 +1,9 @@
+{
+  "name": "superstatic",
+  "version": "1.0.0",
+  "description": "A static site generator for the 21st century and beyond ⚡️",
+  "main": "index.js",
+  "repository": "https://github.com/superstatic/superstatic",
+  "author": "George Karalis",
+  "license": "MIT"
+}
