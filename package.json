@@ -5,8 +5,16 @@
   "main": "index.js",
   "repository": "https://github.com/superstatic/superstatic",
   "author": "George Karalis",
+  "bin": {
+    "superstatic": "./bin/superstatic"
+  },
   "scripts": {
+    "test": "node -r esm ./tests/index.js",
     "build": "node ./superstatic-engine/index.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "jsdom": "^15.1.1"
+  }
 }
