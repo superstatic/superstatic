@@ -9,7 +9,7 @@ class Header {
       <div class="container">
         <div class="header__content">
           <div class="header__logo">
-            <h1>${this.data.name}</h1>
+            <h1></h1>
           </div>
           <nav class="header__nav">
             <a href="/">Home</a>

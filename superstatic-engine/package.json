@@ -1,0 +1,18 @@
+{
+  "name": "superstatic-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "engine-test": "node -r esm ./tests/engineTest.js"
+  },
+  "author": "George Karalis",
+  "license": "ISC",
+  "devDependencies": {
+    "esm": "^3.2.25"
+  }
+}

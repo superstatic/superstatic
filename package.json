@@ -1,5 +1,5 @@
 {
-  "name": "superstatic",
+  "name": "@superstatic/superstatic",
   "version": "1.0.0",
   "description": "A static site generator for the 21st century and beyond ⚡️",
   "main": "index.js",
@@ -10,11 +10,14 @@
   },
   "scripts": {
     "test": "node -r esm ./tests/index.js",
-    "build": "node ./superstatic-engine/index.js"
+    "build": "node -r esm ./superstatic-engine/index.js"
   },
   "license": "MIT",
   "dependencies": {
     "esm": "^3.2.25",
     "jsdom": "^15.1.1"
+  },
+  "devDependencies": {
+    "puppeteer": "^1.19.0"
   }
 }

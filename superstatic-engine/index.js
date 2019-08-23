@@ -1,25 +1,35 @@
-const fs = require('fs')
+import Page from '../superstatic/Page';
+import fs from 'fs';
+import Engine from './Engine';
+import EnginePage from './EnginePage';
 
-const filePath = '/Users/george/Desktop/superstatic/tests/render/';
+const page = new Page({ name: 'home', title: 'Homepage' });
 
-function write({ data }) {
-  fs.writeFile(filePath + 'index.html', data, function (err) {
-    if (err) {
-      return console.log(err);
-    }
+console.log(`Id: ${page.props.id} | Title: ${page.props.title}`);
 
-    console.log("The file was saved!" + data);
-  });
-}
-
-module.exports = write;
-
-
-
-// fs.readFile(__dirname + '/test/index', 'utf-8', (err, data) => {
-//   if (err) {
+// function createDir({ dir }) {
+//   try {
+//     if (!fs.existsSync(dir)){
+//       fs.mkdirSync(dir)
+//     }
+//   } catch (err) {
 //     console.error(err)
-
 //   }
-//   console.log(data)
-// })
+// }
+
+// function createFile({ file, path }) {
+//   fs.writeFile(`${path}/${file}`, '', (err) => {
+//     if(err) return console.log(err);
+//     console.log('File saved...');
+//   })
+// }
+
+// function entry() {
+//   const entry = 'dist';
+//   createDir({ dir: entry });
+//   createDir({ dir: `${entry}/${page.props.name}`});
+
+//   createFile({ file: 'index.html', path: `${entry}/${page.props.name}`});
+// }
+
+// entry();

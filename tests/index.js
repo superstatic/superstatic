@@ -2,19 +2,39 @@ import Base from './Base';
 import Header from './Header';
 import { JSDOM } from 'jsdom';
 
-import write from '../superstatic-engine/index';
+import puppeteer from 'puppeteer';
 
-const info = {
-  name: 'Motorcycle Club 🏍 ',
+import Superstatic from '../superstatic-engine/Superstatic';
+
+const title = {
+  site: 'Motorcycle Club 🏍 ',
   title: 'Tailor made motorcycles'
 }
 
-const base = new Base({ data: info });
+const base = new Base({ name: 'home', title: title });
+console.log(base.props.id);
 const render = base.render();
 
-const dom = new JSDOM(render);
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.setContent(render)
 
-const header = new Header({ data: info });
-dom.window.document.body.innerHTML = header.render();
+const header = new Header({ });
+let headerMarckup = header.render();
 
-write({data: dom.serialize()})
+await page.evaluate((headerMarckup) => {
+  let headerElement = document.createElement('div');
+  headerElement.innerHTML = headerMarckup;
+  document.body.appendChild(headerElement);
+}, headerMarckup);
+
+ const source = await page.content()
+
+  console.log(source)
+
+  const superstatic = new Superstatic();
+  superstatic.write({ path: './tests/render/test.html', data: source });
+
+  await browser.close();
+})();
